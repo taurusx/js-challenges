@@ -1,0 +1,144 @@
+@import url("./reset.css");
+@import url("./header.css");
+@import url("./footer.css");
+
+/* ------------------------- */
+/* ----- GENERAL LAYOUT ----- */ 
+body {
+    font-family: 'Lato', 'Helvetica', sans-serif;
+    font-size: 16px;
+    line-height: 1.2em;
+    width: 100%;
+    overflow-x: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #eee;
+}
+
+main {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.challenge-header {
+    text-align: center;
+    margin: 3rem 1rem 0;
+}
+
+.challenge-header__title {
+    padding: 1.5rem;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.challenge-header__task {
+    padding: 1.5rem;
+    line-height: 1.4em;
+}
+/* ----- END OF: GENERAL LAYOUT ----- */ 
+/* ------------------------- */
+
+/* ------------------------- */
+/* ----- TASK SPECIFIC ----- */ 
+.app {
+    padding: 0 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100vw;
+}
+
+.app__run {
+    margin: 1.5rem;
+    padding: 1rem;
+    background-color: #666;
+    color: #eee;
+    border-radius: 0.3rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.app__run:hover {
+    background-color: black;
+    box-shadow: 0.4rem 0.4rem 0.4rem #666;
+}
+
+.app__run:active {
+    background-color: black;
+    box-shadow: 0.2rem 0.2rem 0.2rem #666;
+}
+
+.app__result--summary {
+    /* display: none; */
+    text-align: center;
+}
+
+.result-num, .result-qty {
+    color: darkred;
+    font-weight: bold;
+}
+
+.app__result {
+    /* display: none; */
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 0.6rem;
+    min-width: 200px;
+    max-width: 500px;
+    margin-top: 1rem;
+    padding: 1rem;
+    overflow-wrap: break-word;
+}
+/* ----- END OF: TASK SPECIFIC ----- */ 
+/* ------------------------- */
+
+/* ------------------------- */
+/* ----- MEDIA QUERIES ----- */ 
+@media only screen and (max-width: 450px) {
+    
+    .header {
+        flex-flow: column;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: none;
+        height: auto;
+        padding-bottom: 10px;
+    }
+
+    .logo {
+        width: 100%;
+        height: auto;
+        justify-content: center;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        margin: 0;
+    }
+
+}
+
+@media only screen and (min-width: 451px) and (max-width: 680px) {
+    .logo{
+        flex: 1;
+    }
+
+    .header__nav {
+        flex: 1;
+        margin-right: 40px;
+    }
+
+    .nav-list {
+        justify-content: space-evenly;
+        margin: 0;
+    }
+
+    .nav-item {
+        flex: 2;
+    }
+}
+/* ----- END OF: MEDIA QUERIES ----- */ 
+/* ------------------------- */
