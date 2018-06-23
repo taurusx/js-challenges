@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>JavaScript - Challenges | taurusx</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/png" href="./src/img/favicon.ico" />
+        <link rel="stylesheet" type="text/css" media="screen" href="./src/css/main.css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato|Pacifico" rel="stylesheet">
+        <script src="main.js"></script>
+    </head>
+
+    <body>
+        <header class="header">
+            <div class="logo">
+                <img src="./src/img/logo-256px.png" alt="Logo" class="logo__img">
+                <span>Challenges</span>
+            </div>
+            <nav class="header__nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="https://taurusx.github.io/js-challenges/">Start</a></li>
+                    <li class="nav-item"><a href="https://github.com/taurusx/js-challenges/">Projekty</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="grid">
+            <article class="card">
+                <img src="./src/img/challenge1-screenshot.jpg" alt="Zadanie 1 - screenshot" class="card__thumbnail">
+                <div class="card__content">
+                    <h2 class="card__title">Zadanie 1</h2>
+                    <h4>Polecenie:</h4>
+                    <p>Napisz skrypt w JavaScripcie i umieść go na stronie www. Skrypt po uruchomieniu ma zapytać użytkownika o liczbę naturalną N, a następnie wypisać na stronie wszystkie liczby pierwsze mniejsze od N.</p>
+                    <h4>Przykłady:</h4>
+                    <ul>
+                        <li>N = 0 – brak odpowiedzi</li>
+                        <li>N = 1 – brak odpowiedzi</li>
+                        <li>N = 2 – brak odpowiedzi</li>
+                        <li>N = 3 – 2</li>
+                        <li>N = 10 – 2, 3, 5, 7</li>
+                    </ul>
+                    <h4>Założenia i wymagania:</h4>
+                    <ul>
+                        <li>N nie będzie większe niż 10000</li>
+                        <li>N powinno być >= 0</li>
+                        <li>Rozwiązanie powinno być stroną www (plikiem HTML), a skrypt może być osadzony w środku HTML-a lub osobno</li>
+                        <li>Jeśli użytkownik poda nieprawidłowe N (na przykład wpisze "lol" albo -42) to skrypt powinien wyświetlić informację o błędzie</li>
+                        <li>Oceniane będą: Prawidłowa odpowiedź, obsługa błędów, czytelność kodu</li>
+                        <li>Wydajność rozwiązania nie będzie oceniana</li>
+                    </ul>
+                    <h4>Tagi:</h4>
+                    <ul>
+                        <li>podstawy JS: zmienne, pętle, funkcje</li>
+                        <li>funkcje wbudowane w przeglądarki: prompt, alert</li>
+                        <li>liczby pierwsze</li>
+                    </ul>
+                </div>
+                <footer class="card__footer">
+                    <ul class="links-list">
+                        <li class="card-link card-link--like"><a href="">Like</a></li>
+                        <li class="card-link card-link--fb"><a href="https://www.facebook.com/events/997187053723327/">Source FB</a></li>
+                        <li class="card-link card-link--github"><a href="https://github.com/taurusx/js-challenges/">GitHub</a></li>
+                        <li class="card-link card-link--live"><a href="https://taurusx.github.io/js-challenges/challenge1.html">See LIVE</a></li>
+                    </ul>
+                </footer>
+            </article>
+            <article class="card">
+                <img src="./src/img/challenge2-screenshot.jpg" alt="Zadanie 2 - screenshot" class="card__thumbnail">
+                <div class="card__content">
+                    <h2 class="card__title">Zadanie 2</h2>
+                    <h4>Polecenie:</h4>
+                    <p>Stwórz aplikację w JavaScripcie i HTML. Aplikacja po uruchomieniu ma wyświetlać formularz, który umożliwia przeliczanie jednostek długości. Użytkownik ma możliwość wpisania liczby w polu oraz wyboru dwóch jednostek – wejściowej i wyjściowej.</p>
+                    <h4>Założenia i wymagania:</h4>
+                    <ul>
+                        <li>użytkownik może wpisywać liczbę w pole</li>
+                        <li>w trakcie wpisywania aplikacja ma automatycznie na bieżąco przeliczać i wyświetlać wynik – bez konieczności np. klikania w przycisk</li>
+                        <li>ponadto, użytkownik może dokonać wyboru dwóch jednostek: metr, kilometr, decymetr, centymetr, milimetr, cal, stopa, jard, mila</li>
+                        <li>wpisanie w pole bzdur nie powinno „popsuć” aplikacji</li>
+                        <li>oceniane będą: Prawidłowa odpowiedź, obsługa błędów, czytelność kodu</li>
+                        <li><span class="text--crossed">dopuszczalne jest używanie bibliotek pomocniczych, np. jQuery</span> - nie zastosowano</li>
+                    </ul>
+                    <h4>Tagi:</h4>
+                    <ul>
+                        <li>zdarzenia (events)</li>
+                        <li>el.addEventListener(…)</li>
+                        <li><span class="text--crossed">jQuery.on(…)</span> - nie zastosowano</li>
+                    </ul>
+                </div>
+                <footer class="card__footer">
+                    <ul class="links-list">
+                        <li class="card-link card-link--like"><a href="">Like</a></li>
+                        <li class="card-link card-link--fb"><a href="https://www.facebook.com/events/1091460824257459/">Source FB</a></li>
+                        <li class="card-link card-link--github"><a href="https://github.com/taurusx/js-challenges/">GitHub</a></li>
+                        <li class="card-link card-link--live"><a href="https://taurusx.github.io/js-challenges/challenge2.html">See LIVE</a></li>
+                    </ul>
+                </footer>
+            </article>
+        </main>
+        <footer class="footer">
+                &copy; Copyright 2018 Sławomir Zawistowski
+        </footer>
+    </body>
+
+</html>
