@@ -1,0 +1,71 @@
+/* ------------------------- */
+/* ----- CARD LAYOUT ----- */ 
+.card {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 3px 3px 5px 0px rgba(120,120,120,1);
+}
+
+.card__thumbnail {
+    max-width: 100%;
+}
+
+.card:hover {
+    box-shadow: 5px 5px 7px 0px rgba(120,120,120,1);
+}
+
+.card__content {
+    padding: 10px 20px;
+}
+
+.card__content > * {
+    padding: 10px 0;
+}
+
+.card__content > ul {
+    list-style-position: inside;
+    list-style-type: square;
+}
+
+.card__title {
+    margin: 20px 0px 10px;
+    font-size: 1.6rem;
+    font-family: 'Pacifico', Helvetica, sans-serif;
+}
+
+.card__footer {
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+.links-list {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    align-content: stretch;
+}
+
+.card-link {
+    display: inline-block;
+    flex: 1 0 125px;
+    text-align: center;
+    border-top: 1px rgb(150, 150, 150) solid;
+    border-right: 1px rgb(150, 150, 150) solid;
+}
+
+.card-link a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+.card-link:hover {
+    background-color: rgb(150, 150, 150);
+    color: #fff;
+}
+/* ----- END OF: CARD LAYOUT ----- */ 
+/* ------------------------- */
