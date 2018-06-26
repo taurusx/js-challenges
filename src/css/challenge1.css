@@ -51,7 +51,7 @@ main {
     max-width: 100vw;
 }
 
-.app__run {
+.app__btn-run {
     margin: 1.5rem;
     padding: 1rem;
     background-color: #666;
@@ -61,18 +61,18 @@ main {
     text-transform: uppercase;
 }
 
-.app__run:hover {
+.app__btn-run:hover {
     background-color: black;
     box-shadow: 0.4rem 0.4rem 0.4rem #666;
 }
 
-.app__run:active {
+.app__btn-run:active {
     background-color: black;
     box-shadow: 0.2rem 0.2rem 0.2rem #666;
 }
 
 .app__result--summary {
-    /* display: none; */
+    display: none;
     text-align: center;
 }
 
@@ -82,7 +82,7 @@ main {
 }
 
 .app__result {
-    /* display: none; */
+    display: none;
     background-color: #fff;
     border: 1px solid #000;
     border-radius: 0.6rem;

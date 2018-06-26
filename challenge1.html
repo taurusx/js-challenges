@@ -9,7 +9,6 @@
         <link rel="shortcut icon" type="image/png" href="./src/img/favicon.ico" />
         <link rel="stylesheet" type="text/css" media="screen" href="./src/css/challenge1.css" />
         <link href="https://fonts.googleapis.com/css?family=Lato|Pacifico" rel="stylesheet">
-        <script src="./src/js/challenge1.js"></script>
     </head>
 
     <body>
@@ -36,8 +35,11 @@
                     Następnie program wyświetli wszystkie liczby pierwsze mniejsze od wskazanej.</p>
             </header>
             <div class="app">
-                <div class="app__run">Zaczynamy</div>
-                <p class="app__result--summary">Podana została liczba <span class="result-num">668</span>. Ilość liczb pierwszych mniejszych od podanej to <span class="result-qty">121</span>. Oto ich lista:</p>
+                <div class="app__btn-run">Zaczynamy</div>
+                <p class="app__result--summary">Podana została liczba <span class="result-num">668</span>. 
+                    <span class="result-msg">Ilość liczb pierwszych mniejszych od podanej to <span class="result-qty">121</span>. Oto ich lista:</span>
+                    <span class="result-msg--zero">Brak liczb pierwszych mniejszych od podanej.</span>
+                </p>
                 <p class="app__result">2	3	5	7	11	13	17	19	23	29	31	37	41	43	47	53	59	61	67	71
                         	73	79	83	89	97	101	103	107	109	113	127	131	137	139	149	151	157	163	167	173
                         	179	181	191	193	197	199	211	223	227	229	233	239	241	251	257	263	269	271	277	281
@@ -52,6 +54,7 @@
         <footer class="footer">
             &copy; Copyright 2018 Sławomir Zawistowski
         </footer>
+        <script src="./src/js/challenge1.js"></script>
     </body>
 
 </html>
