@@ -1,0 +1,27 @@
+{
+  "name": "js-challenges",
+  "version": "1.0.0",
+  "description": "Code training - various excercises for JS skills",
+  "main": "/src/js/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src/js/ -d lib/js/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taurusx/js-challenges.git"
+  },
+  "author": "taurusx",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taurusx/js-challenges/issues"
+  },
+  "homepage": "https://github.com/taurusx/js-challenges#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}
