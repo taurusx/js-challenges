@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JS Challenge 2 - Kalkulator jednostek | taurusx</title>
+        <link rel="shortcut icon" type="image/png" href="./src/img/favicon.ico" />
+        <link rel="stylesheet" type="text/css" media="screen" href="./src/css/challenge2.css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato|Pacifico" rel="stylesheet">
+        <script src="./src/js/challenge2.js" defer></script>
+    </head>
+
+    <body>
+        <!-- -->
+        <!-- PAGE HEADER -->
+        <header class="header">
+            <div class="logo"><a href="https://taurusx.github.io/js-challenges/">
+                <img src="./src/img/logo-256px.png" alt="Logo" class="logo__img">
+                <span>Challenges</span>
+            </a></div>
+            <nav class="header__nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="https://taurusx.github.io/js-challenges/">Start</a></li>
+                    <li class="nav-item"><a href="https://github.com/taurusx/js-challenges/">Projekty</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- -->
+        <!-- MAIN CONTENT AREA -->
+        <main>
+            <header class="challenge-header">
+                <h1 class="challenge-header__title">Kalkulator jednostek</h1>
+                <p class="challenge-header__task">Wybierz jednostki, pomiędzy którymi kalkulator dokona przeliczenia.  <br> 
+                    Podaj wartość do przeliczenia i odczytaj swój wynik.</p>
+            </header>
+            <div class="app">
+                <form>
+                    <div class="input-wrapper">
+                        <label for="value1" class="visuallyhidden">Value</label>
+                        <input type="text" name="value1" id="value1" class="field" placeholder="np. &quot;18.5&quot;" maxlength="25">
+                        <div class="custom-select">
+                                <label for="unit1" class="visuallyhidden">Select unit: </label>
+                                <select id="unit1" name="unit1" class="field custom-select__options">
+                                    <option value="mile" selected>mi</option>
+                                    <option value="foot">ft</option>
+                                </select>
+                                <div class="select-arrow"></div>
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="value2" class="visuallyhidden">Value</label>
+                        <input type="text" name="value2" id="value2" class="field" placeholder="to: &quot;29.773&quot;" maxlength="25">
+                        <div class="custom-select">
+                                <label for="unit2" class="visuallyhidden">Select unit: </label>
+                                <select id="unit2" name="unit2" class="field custom-select__options">
+                                    <option value="cm">cm</option>
+                                    <option value="km" selected>km</option>
+                                </select>
+                        </div>
+                    </div>
+                </form>
+                <div class="app__btn-run">Przelicz</div>
+                <!-- TODO: testowo - zapisywanie 10 ost.wynikow: -->
+                <!-- <div class="app__btn-save">Zapisz</div>
+                <p class="app__result">
+                <span class="app__result--summary">Przeliczono <span class="result-value">18.5</span><span class="result-unit">mi</span> na <span class="result-value">29.773</span><span class="result-unit">km</span>.</span></p> -->
+            </div>
+        </main>
+        <!-- -->
+        <!-- PAGE FOOTER -->
+        <footer class="footer">
+            &copy; Copyright 2018 Sławomir Zawistowski
+        </footer>
+    </body>
+
+</html>
