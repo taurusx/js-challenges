@@ -1,4 +1,4 @@
-import { METRIC_UNITS, IMPERIAL_UNITS, calculateResult } from './challenge2-func';
+import { METRIC_UNITS, IMPERIAL_UNITS, calculateResult } from './challenge2-func.js';
 
 //TODO: get values from html, css, DOM:
 // Units to be converted, read from the website:
