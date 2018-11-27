@@ -52,8 +52,6 @@ const lastModifiedToggle = inputFieldTarget => {
   } 
 }
 
-//TODO: formatResult w zależności od całkowitej ilości cyfr (toPrecision), może jednostek, ilości 0 wiodących itp.
-
 /**
  * Callback function to handle Events that might have targetted results 
  * or calculation parameters.
@@ -76,9 +74,13 @@ const updateResults = event => {
   const unit1 = document.querySelector(unitSelector1);
   const unit2 = document.querySelector(unitSelector2);
 
-  inputField2.value =
-    calculateResult(inputField1.value, unit1.value, unit2.value);
-
+  try {
+    inputField2.value =
+      calculateResult(inputField1.value, unit1.value, unit2.value);
+  } catch (e) {
+    inputField2.value = "Liczba zbyt długa";
+    console.log(e.message);
+  }
 }
 
 /**

@@ -38,6 +38,14 @@ const IMPERIAL_UNITS = {
  */
 const FOOT_TO_METER_RATIO = 0.3048;
 
+/**
+ * Constant relates to maximum number of decimal places of result 
+ * after calculations.
+ * 
+ * @constant DECIMAL_PRECISION_MAX  - number of decimal places for result
+ */
+const DECIMAL_PRECISION_MAX = 9;
+
 /** Helper method to check whether given unit is part of metric system - 
  * cross-checked with keys in *_UNITS type object.
  * 
@@ -81,6 +89,42 @@ const getFactor = unit => {
   }
 }
 
+/**
+ * Check whether given number's or result's precision is not out of range.
+ * Will throw an Error if out of possible precision - 15 decimal digits.
+ * 
+ * @param {number} num - value passed for calculations
+ * @param {number} unitFactor - digits added by unit conversion
+ * @param {number} decimalPrecision - required precision
+ * 
+ * @throws {Error} Error with "NumberLengthError" message
+ */
+const checkPrecision = (num, unitFactor, decimalPrecision) => {
+  const numArray = num.toString().split('.');
+  const unitFactorArray = unitFactor.toString().split('.');
+  const resultArray = (num * unitFactor).toString().split('.');
+
+  // Evaluate decimal precision necessary:
+  if (numArray.length > 1 && unitFactorArray.length > 1) {
+    decimalPrecision = Math.min(decimalPrecision, numArray[1].length +
+      unitFactorArray[1].length);
+  } else if (numArray.length > 1) {
+    decimalPrecision = Math.min(decimalPrecision, numArray[1].length);
+  } else if (unitFactorArray.length > 1) {
+    decimalPrecision = Math.min(decimalPrecision, unitFactorArray[1].length);
+    // Same unit, so should be 1.00(0), no decimals:
+    if (unitFactorArray[1] === 1) {
+      decimalPrecision = 0;
+    }
+  } else {
+    decimalPrecision = 0;
+  }
+
+  if (resultArray[0].length + decimalPrecision > 15) {
+    throw new Error("NumberLengthError");
+  }
+}
+
 /** Check if given value is a number and return its value.
  * 
  * @param {string|number} num - value to be parsed
@@ -100,7 +144,8 @@ const parseNumber = num => {
   return null;
 }
 
-/** Calculate the result of conversion of value input, with specified 
+/** 
+ * Calculate the result of conversion of value input, with specified 
  * starting unit and desirable unit 
  * 
  * @param {string|number} valueInput - value input to be converted
@@ -108,15 +153,19 @@ const parseNumber = num => {
  * @param {string} unitResult - unit name for output value (result)
  * 
  * @returns {number} value after conversion
+ * 
+ * @throws {Error} Will throw an Error if calculation numbers are 
+ * out of possible precision - 15 decimal digits
  */
-const calculateResult = (valueInput, unitGiven, unitResult) => {
+const calculateResult = (valueInput, unitGiven,
+  unitResult, decimalPrecision) => {
   // Get factor in relation to the basic unit:
   const unitGivenFactor = getFactor(unitGiven);
   const unitResultFactor = getFactor(unitResult);
   if (unitGivenFactor === null || unitResultFactor === null) return null;
 
   const parsedValue = parseNumber(valueInput);
-  if (parsedValue === null) return null; 
+  if (parsedValue === null || parsedValue < 0) return null; 
 
   // If units are in different systems, get ratio:
   let systemFactor = 1;
@@ -126,9 +175,29 @@ const calculateResult = (valueInput, unitGiven, unitResult) => {
     systemFactor = FOOT_TO_METER_RATIO;
   }
 
-  // e.g.: miles to km: 4[mi] = 4*5280[ft] = 4*5280*(ratio=0.3048)[m] = 
+  if (decimalPrecision === undefined) {
+    decimalPrecision = DECIMAL_PRECISION_MAX ;
+  } 
+
+  // Check if given number is not too long:
+  try {
+    const unitFactor = unitGivenFactor * systemFactor / unitResultFactor;
+    checkPrecision(parsedValue, unitFactor, decimalPrecision);
+  } catch (e) {
+    throw e;
+  }
+
+  // For number rounding:
+  const precisionFactor = Math.pow(10, decimalPrecision);
+
+  // Result, e.g.: miles to km: 4[mi] = 4*5280[ft] = 4*5280*(ratio=0.3048)[m] =
   // = 4 * 5280 * 0.3048 / (1000)[km] = 6.437km
-  return parsedValue * unitGivenFactor * systemFactor / unitResultFactor;
+  const result = (Math.round((parsedValue * unitGivenFactor * systemFactor / unitResultFactor) * precisionFactor)) / precisionFactor;
+  // Remove last digit that might influence result:
+  if ((result + '').replace('.', '').length > 15) {
+    result = parseFloat(result.toString().slice(0, 15));
+  }
+  return result;
 }
 
 export { METRIC_UNITS, IMPERIAL_UNITS, calculateResult }
