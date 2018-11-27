@@ -113,7 +113,7 @@ const checkPrecision = (num, unitFactor, decimalPrecision) => {
   } else if (unitFactorArray.length > 1) {
     decimalPrecision = Math.min(decimalPrecision, unitFactorArray[1].length);
     // Same unit, so should be 1.00(0), no decimals:
-    if (unitFactorArray[1] === 1) {
+    if (unitFactorArray[0] === 1 && unitFactorArray[1].toFixed(2) === 0) {
       decimalPrecision = 0;
     }
   } else {
@@ -192,7 +192,8 @@ const calculateResult = (valueInput, unitGiven,
 
   // Result, e.g.: miles to km: 4[mi] = 4*5280[ft] = 4*5280*(ratio=0.3048)[m] =
   // = 4 * 5280 * 0.3048 / (1000)[km] = 6.437km
-  const result = (Math.round((parsedValue * unitGivenFactor * systemFactor / unitResultFactor) * precisionFactor)) / precisionFactor;
+  let result = (Math.round((parsedValue * unitGivenFactor *
+    systemFactor / unitResultFactor) * precisionFactor)) / precisionFactor;
   // Remove last digit that might influence result:
   if ((result + '').replace('.', '').length > 15) {
     result = parseFloat(result.toString().slice(0, 15));
