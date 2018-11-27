@@ -36,11 +36,28 @@
                 <p class="challenge-header__task">Wybierz jednostki, pomiędzy którymi kalkulator dokona przeliczenia.  <br> 
                     Podaj wartość do przeliczenia i odczytaj swój wynik.</p>
             </header>
+            <p class="description">Uwaga! Program prowadzi operacje na max.15 miejscach znaczących. <br>
+                Wybierz mniejszą dokładność dziesiętną, aby móc przeliczać wyższe liczby. Bazowa dokładność to 9 miejsc dziesiętnych. </p>
+            <div class="custom-select">
+                    <label for="precision" class="label">Max. liczba miejsc dziesiętnych w wyniku: </label>
+                    <select id="precision" name="precision" class="field custom-select__options custom-select__options--short">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9" selected>9</option>
+                    </select>
+                    <div class="select-arrow"></div>
+            </div>
             <div class="app">
                 <form>
                     <div class="input-wrapper">
                         <label for="value1" class="visuallyhidden">Value</label>
-                        <input type="text" name="value1" id="value1" class="field" placeholder="np. &quot;18.5&quot;" maxlength="25">
+                        <input type="text" name="value1" id="value1" class="field" placeholder="np. &quot;18.5 mi&quot;" maxlength="25">
                         <div class="custom-select">
                                 <label for="unit1" class="visuallyhidden">Select unit: </label>
                                 <select id="unit1" name="unit1" class="field custom-select__options">
@@ -52,7 +69,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="value2" class="visuallyhidden">Value</label>
-                        <input type="text" name="value2" id="value2" class="field" placeholder="to: &quot;29.773&quot;" maxlength="25">
+                        <input type="text" name="value2" id="value2" class="field" placeholder="wynik: &quot;29.773 km&quot;" maxlength="25">
                         <div class="custom-select">
                                 <label for="unit2" class="visuallyhidden">Select unit: </label>
                                 <select id="unit2" name="unit2" class="field custom-select__options">

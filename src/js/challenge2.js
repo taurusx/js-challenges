@@ -74,9 +74,13 @@ const updateResults = event => {
   const unit1 = document.querySelector(unitSelector1);
   const unit2 = document.querySelector(unitSelector2);
 
+  const decimalPrecision = document.querySelector('#precision').value;
+
   try {
-    inputField2.value =
-      calculateResult(inputField1.value, unit1.value, unit2.value);
+    const result =
+      calculateResult(inputField1.value, unit1.value,
+        unit2.value, decimalPrecision);
+    inputField2.value = result;
   } catch (e) {
     inputField2.value = "Liczba zbyt długa";
     console.log(e.message);
@@ -100,6 +104,8 @@ const addListeners = () => {
   const selectUnit2 = document.getElementById('unit2');
   selectUnit1.addEventListener('change', updateResults);
   selectUnit2.addEventListener('change', updateResults);
+  const selectPrecision = document.querySelector('#precision');
+  selectPrecision.addEventListener('change', updateResults);
 }
 
 /**
